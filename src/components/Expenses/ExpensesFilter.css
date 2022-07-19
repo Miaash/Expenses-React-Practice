@@ -1,0 +1,12 @@
+.expenses-filter {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+
+
+label {
+    color: white;
+    margin-right: 10px;
+}

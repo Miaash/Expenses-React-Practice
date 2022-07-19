@@ -1,0 +1,5 @@
+/* 카드 컴포넌트는 Expenses, ExpenseItem의 공통된 css를 가지고 있음 */
+.card {
+    border-radius: 12px;
+    box-shadow: 0 1px 8px rgba(0, 0, 0, 0.25);
+}

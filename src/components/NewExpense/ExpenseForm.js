@@ -80,7 +80,7 @@ const ExpenseForm = (props) => {
             <div className="new-expense__controls">
                 <div className="new-expense__control">
                     <label>Title</label>
-                    {/* value값을 state로 주게 되면  */}
+                    {/* value값을 state로 주게 되면 양방향 바인딩 가능 새로 고침 시에 초기 상태로 돌아감  */}
                     <input type="text" value={enteredTitle} onChange={titleChangeHandler}/>
                 </div>
                 <div className="new-expense__control">

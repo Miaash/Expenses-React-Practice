@@ -33,15 +33,12 @@ const DUMMY_EXPENSES = [
 const App = () => {
   // useState에서 초깃값은 DUMMY_EXPENSES
   // 사용자입력폼의 내용들은 내부에서 변할 수 있는 값이므로 state에 저장
-  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+
 
   const addExpenseHandler = (expense) => {
     // 여기서 expense는 입력한 새로운 값이고 ...expenses는 기존의 값 => 배열에 담아준다
     // setExpenses([expense, ...expenses])
-    setExpenses((prevExpenses) => {
-      return [expense, ...prevExpenses]
-    })
-    console.log(expense)
+   
   }
 
   return (

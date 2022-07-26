@@ -1,10 +1,7 @@
-
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/NewExpense/NewExpense";
-
-// 연습용 데이터 묶음 같은 것, state를 초기화하는데 사용할 수 있음
-const DUMMY_EXPENSES = [
+const DUMMY_DATA = [
   {
     id: 'e1',
     title: 'Toilet Paper',
@@ -25,29 +22,36 @@ const DUMMY_EXPENSES = [
   {
     id: 'e4',
     title: 'New Desk (Wooden)',
-    amount: 450,
+    amount: 450.34,
     date: new Date(2021, 5, 12),
   },
 ];
-
 const App = () => {
   // useState에서 초깃값은 DUMMY_EXPENSES
   // 사용자입력폼의 내용들은 내부에서 변할 수 있는 값이므로 state에 저장
-
-
+  const [expenses, setExpenses] = useState(DUMMY_DATA);
+  
   const addExpenseHandler = (expense) => {
-    // 여기서 expense는 입력한 새로운 값이고 ...expenses는 기존의 값 => 배열에 담아준다
+    
+    // 기존에 있던 더미데이터의 값들을 배열에 직접 넣어주기보다
+    // 기존에 있던 값들을 setExpenses의 인자로 전달해 배열에 넣어주면 뭔 차이일까 뭐지 뭔개소리지
     // setExpenses([expense, ...expenses])
-   
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    })
+      // console.log("In App.js");
+      // console.log(expense);
+
+    
   }
 
   return (
     <div>
-      <NewExpense onAddExpense={addExpenseHandler} />
+      {/* 속성(property)이름은 맘대로 지어도 된다 */}
+      <NewExpense onAddExpense={addExpenseHandler}/>
       <Expenses items={expenses} />
-      {/* 속성을 Expenses파일에 있는 속성과 같아야함 */}
     </div>
-  );
+  )
 }
 
 export default App;

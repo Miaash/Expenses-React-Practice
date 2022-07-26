@@ -43,8 +43,6 @@ const ExpenseForm = (props) => {
 
     const dateChangeHandler = (event) => {
         setEnteredDate(event.target.value)
-       
-        
     }
 
     const submitHandler = (event) => {
@@ -64,8 +62,9 @@ const ExpenseForm = (props) => {
         // 밑에 form 안에 각 요소에 value 값에 state를 줘야함
         // onSaveExpenseData 함수는 ExpenseForm 안에서 정의되지 않았어도 props를 통해 NewExpense에서 정의된 함수를
         // 사용할 수 있다 => 부모 컴포넌트와 자식 컴포넌트가 소통하는 방법
+
         // 매개변수에 expenseData를 전달해주면 NewExpense의 함수의 매개변수로 전달이 된다.
-        props.onSaveExpenseData(expenseData);
+        props.onSaveExpense(expenseData);
         // 초기 상태로 만들기
         setEnteredTitle('');
         setEnteredAmount('');

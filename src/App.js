@@ -11,7 +11,7 @@ const DUMMY_DATA = [
   { id: 'e2',
     title: 'New TV',
     amount: 799.49,
-    date: new Date(2020, 2, 12) 
+    date: new Date(2022, 2, 12) 
   },
   {
     id: 'e3',
@@ -23,7 +23,7 @@ const DUMMY_DATA = [
     id: 'e4',
     title: 'New Desk (Wooden)',
     amount: 450.34,
-    date: new Date(2019, 5, 12),
+    date: new Date(2020, 5, 12),
   },
 ];
 const App = () => {

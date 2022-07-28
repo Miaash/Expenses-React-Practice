@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import "./Expenses.css";
-import ExpenseItem from "./ExpenseItem";
+import ExpensesList from './ExpensesList';
 import Card from "../UI/Card";
 import ExpensesFilter from './ExpensesFilter';
+import "./Expenses.css";
 
 const Expenses = (props) => {
-  const [filteredYear, setFilterdYear] = useState('2020');
+  const [filteredYear, setFilterdYear] = useState('2022');
 
     const filterChangeHandler = (selectedYear) => {
       console.log("In Expenses.js")
@@ -17,23 +17,7 @@ const Expenses = (props) => {
     const filteredExpenses = props.items.filter((expense) => {
         return expense.date.getFullYear().toString() === filteredYear;
     })
-
-    // 변경 가능한 변수로 할당해서 깔끔하게 작성하기
-    let expenseContent = <p>No expenses found.</p>;
     
-    if(filteredExpenses.length > 0) {
-        expenseContent = filteredExpenses.map((expense) => (
-            <ExpenseItem 
-            // Warning: Each child in a list should have a unique "key" prop.
-            // 위와 같은 오류메시지: 특정 컨텐츠를 갖는 모든 아이템들은 분명하게 고유한 id를 갖고 있어야 함 -> key속성 적어주기
-            // 더미데이터에서 고유한 id 사용
-            // 아이템이 위치해야할 곳 까지 인식함
-            key={expense.id}
-            title={expense.title}
-            amount={expense.amount}
-             date={expense.date} />
-             ))   
-    }
     
 
     return (
@@ -43,7 +27,8 @@ const Expenses = (props) => {
             <ExpensesFilter 
             selected={filteredYear} 
             onFilterChange={filterChangeHandler}/>
-            {expenseContent}
+            {/* ExpenseList컴포넌트에 props로 filteredExpenses를 넘겨줘야함 */}
+            <ExpensesList items={filteredExpenses}/>
         </Card>
      </div>
     )

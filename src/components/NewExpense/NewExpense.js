@@ -14,6 +14,7 @@ const NewExpense = (props) => {
         // console.log(expenseData);
         props.onAddExpense(expenseData);
         // NewExpense에 있는 데이터를 App에 넘겨줘야함
+        console.log(expenseData)
     }
 
     return (
